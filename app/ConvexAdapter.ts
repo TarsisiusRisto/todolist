@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import type {
   Adapter,
   AdapterAccount,
@@ -29,6 +30,7 @@ export const ConvexAdapter: Adapter = {
     });
     return { ...session, id };
   },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async createUser({ id: _, ...user }: User) {
     const id = await callMutation(api.authAdapter.createUser, {
       user: toDB(user),
